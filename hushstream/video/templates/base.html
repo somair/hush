@@ -3,10 +3,57 @@
 <html lang="en">
   <head>
     <title>{% block head_title %}{% endblock %}</title>
+    <style>
+    html{
+      background-color: #282C34;
+    }
+    body{
+      display: flex;
+      flex-direction: column;
+      background-color: #282C34;
+      color: #9AADBF;
+      font-family: sans-serif;
+    }
+    /* Modify link colors for easier reading */
+    a:link{
+      color: inherit;
+    }
+    a:visited{
+      color: #C36875;
+    }
+    footer{
+      text-align: center;
+    }
+    .flex{
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 640px){
+      .flex {
+        flex-direction: row;
+        flex: 1;
+      }
+      main{flex: 1;}
+      nav, aside{flex: 0 0 12em;}
+    }
+    </style>
   </head>
   <body>
-    {% block content %}
-    {% endblock %}
+    <div class="flex">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Announcements</a>
+          </li>
+          <li>
+            <a href="#">Videos</a>
+          </li>
+        </ul>
+      </nav>
+      {% block content %}
+      {% endblock %}
+    </div>
   </body>
 
 </html>
