@@ -3,7 +3,7 @@ from djang.core.files.storage import FileSystemStorage
 
 fs = FileSystemStorage(location='/media/hushvids')
 
-class Video(models.Model):
+class Episode(models.Model):
     """
     Base video model
     """
