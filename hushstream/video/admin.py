@@ -1,3 +1,6 @@
 from django.contrib import admin
+from django.db.models import *
 
-# Register your models here.
+django.site.register(Show)
+django.site.register(Episode)
+django.site.register(Movie)
