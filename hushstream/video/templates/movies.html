@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Movies{% endblock %}
+
+{% block content %}
+<h2>Shows:</h2><br />
+{% if movies_list %}
+  <ul>
+    {% for movie in movies_list %}
+      <li>
+        <a href="#">{{ movie.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>
+    Movies are unavailable.
+  </p>
+{% endif %}
+{% endblock %}
