@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Announcements{% endblock %}
+
+{% block content %}
+<h2>Announcements</h2><br />
+{% if posts_list %}
+  {% for post in posts_list %}
+  <section>
+    <h3>{{post.title}}</h3><br />
+    <p>
+      by <strong>{{post.author}}</strong>, {{post.date}}
+    </p><br />
+    <main>
+      {{post.text}}
+    </main><br />
+  </section>
+  {% endfor %}
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.models import User
 
 fs = FileSystemStorage(location='/media/hushvids')
 
@@ -28,3 +29,13 @@ class Movie(models.Model):
 
     title = models.CharField(max_length=255)
     video = models.FileField(storage=fs)
+
+class Post(models.Model):
+    """
+    Used to store posts to the home/announcements page
+    """
+
+    title = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(User)
+    text = models.TextField()

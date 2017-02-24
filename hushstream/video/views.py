@@ -6,7 +6,12 @@ from .models import *
 # Create your views here.
 @login_required(login_url='/login/')
 def home(request):
-    return render(request, 'home.html')
+    #A simple blog style view
+    posts_list = Post.objects.order_by('date')
+    context = {
+        'posts_list':posts_list
+    }
+    return render(request, 'home.html', context)
 
 def logout(request):
 	auth.logout(request)
